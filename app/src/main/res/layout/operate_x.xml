@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#343e49">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fdfdfd"
+        android:text="操作说明："
+        android:textSize="10pt"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fdfdfd"
+        android:text="单人游戏："
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fdfdfd"
+        android:text="     刚开始游戏页面只有2个方格有数字，将所有方块向同一方向运动，两个相同的数字方块会合并成一个它们的和的数字方块，而每一次操作都会在空白的方格处随机产生一个2或者4，如果最终得到一个2048的方块，那么恭喜你，你赢了!"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fdfdfd"
+        android:text="双人对战："
+        android:id="@+id/textView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fdfdfd"
+        android:text="     共有两名玩家参与此游戏用黑色和白色来区分玩家，背景中的颜色显示当前决策的玩家玩家可以在如下操作中选择一种：                                                                                  （1）上下左右滑动，每滑动一次，所有的数字方块都会往滑动的方向靠拢，系统也会在空白的地方随机出现一个数字方块，数字方块的值为2或4。相同数字的方块在靠拢、相撞时会相加。如果相撞的是相同颜色的方块，则值相加，如果相撞的是不同颜色的方块，则值相减（即为0）。注意！值为0的方块不能与其他方块相加，即使对方是0也不行。                                                                                                      （2）点击屏幕，如果点击了值为0的方块，则消去该方块。但是该操作不能连续进行。                                                                          游戏结束条件： 屏幕中方块的最大值达到2048，或者下一步没有可以移动或消去的方块时                                                                                  玩家分数计算： 每个玩家初始分数为0分。 当相同颜色的方块相加时，所产生的分数绝对值为相加得到的方块的值。 如果滑动使得自己颜色的方块相加，自己得到相应分数； 如果滑动使得对方颜色的方块相加，对方扣除相应分数。"
+        android:id="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fdfdfd"
+        android:text="特色模式：                                                                                                               为了给大家带来一场视觉的盛宴以及让大家对于如何玩好2048这一款游戏有着更为深刻的体会，我们因此推出了智能AI模式，在这一个模式里，玩家不需要进行任何操作，仅仅是观赏AI如何玩好这一款游戏，让玩家学习学习。"
+        android:id="@+id/textView14" />
+</LinearLayout>

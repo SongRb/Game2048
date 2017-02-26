@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+
+    android:orientation="vertical">
+    <!--android:background="@drawable/back_ground" -->
+
+
+    <RelativeLayout
+
+        android:id="@+id/RelativeLayout_with_center"
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <!-- 屏幕中心按钮设置 android:layout_centerInParent="true" -->
+
+        <!--<Button-->
+
+        <!--android:id="@+id/center_menu_button"-->
+
+        <!--android:layout_width="200dip"-->
+
+        <!--android:layout_height="200dip"-->
+
+        <!--android:background="@drawable/button"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_marginEnd="30dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true" />-->
+
+
+        <!-- 屏幕中心按钮左侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
+
+        <Button
+
+            android:id="@+id/left_button"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/round_button"
+            android:layout_above="@+id/below_button"
+            android:layout_toLeftOf="@+id/below_button"
+            android:layout_toStartOf="@+id/below_button"
+            android:layout_marginBottom="26dp" />
+
+
+        <!-- 屏幕中心按钮右侧侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
+
+        <Button
+
+            android:id="@+id/mid_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="关于我们"
+            android:layout_alignBottom="@+id/left_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+        <!-- 屏幕中心按钮上方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
+
+        <Button
+
+            android:id="@+id/my_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:layout_above="@id/below_button"
+            android:layout_marginBottom="100dp"
+
+            android:layout_toLeftOf="@+id/mid_button"
+            android:layout_toStartOf="@+id/mid_button" />
+        <!--android:layout_alignTop="@+id/center_menu_button"-->
+
+
+        <!-- 屏幕中心按钮下方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
+
+        <Button
+
+            android:id="@+id/below_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="退出游戏"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/my_button"
+            android:layout_alignStart="@+id/my_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2048"
+            android:textSize="40pt"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+</LinearLayout>

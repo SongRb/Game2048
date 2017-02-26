@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <!--android:background="@drawable/back_ground"-->
+
+    <RelativeLayout
+
+        android:id="@+id/RelativeLayout_with_center"
+
+        android:layout_width="fill_parent"
+
+        android:layout_height="fill_parent">
+
+
+        <!-- 屏幕中心按钮左侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
+
+        <Button
+
+            android:id="@+id/left_button"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/round_button"
+
+            android:text="特色模式"
+            android:layout_marginBottom="109dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <!-- 屏幕中心按钮右侧侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
+
+        <Button
+
+            android:id="@+id/mid_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="双人对战"
+            android:layout_marginBottom="34dp"
+            android:layout_above="@+id/left_button"
+            android:layout_alignLeft="@+id/left_button"
+            android:layout_alignStart="@+id/left_button" />
+
+
+        <!-- 屏幕中心按钮上方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
+
+        <Button
+
+            android:id="@+id/top_button"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/round_button"
+
+            android:text="单人游戏"
+            android:layout_marginBottom="35dp"
+            android:layout_above="@+id/mid_button"
+            android:layout_alignLeft="@+id/mid_button"
+            android:layout_alignStart="@+id/mid_button" />
+
+
+        <!-- 屏幕中心按钮下方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2048"
+            android:textSize="45pt"
+            android:id="@+id/textView"
+            android:layout_marginBottom="42dp"
+            android:layout_above="@+id/top_button"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</LinearLayout>
