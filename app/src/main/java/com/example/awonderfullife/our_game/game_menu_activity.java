@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 
-public class NextActivity extends Activity {
+public class game_menu_activity extends Activity {
 
     private Button my_button2 = null;
     private Button my_button3 = null;
@@ -17,7 +17,7 @@ public class NextActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_next);
+        setContentView(R.layout.activity_game_menu);
 
         my_button2 = (Button) findViewById(R.id.top_button);
         my_button2.setOnClickListener(new MyButtonListener());
@@ -33,8 +33,8 @@ public class NextActivity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(NextActivity.this, MainActivity.class);
-            NextActivity.this.startActivity(intent);
+            intent.setClass(game_menu_activity.this, MainActivity.class);
+            game_menu_activity.this.startActivity(intent);
         }
     }
 
@@ -42,8 +42,8 @@ public class NextActivity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(NextActivity.this, MainActivity_3.class);
-            NextActivity.this.startActivity(intent);
+            intent.setClass(game_menu_activity.this, MainActivity_3.class);
+            game_menu_activity.this.startActivity(intent);
         }
     }
 
@@ -51,8 +51,8 @@ public class NextActivity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(NextActivity.this, BlueRatio.class);
-            NextActivity.this.startActivity(intent);
+            intent.setClass(game_menu_activity.this, BlueRatio.class);
+            game_menu_activity.this.startActivity(intent);
         }
     }
 }

@@ -19,7 +19,7 @@ public class MainActivity_2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_single_game);
         gameView = (GameView) findViewById(R.id.gameView);
         tvScore = (TextView) findViewById(R.id.tvScore);
         if (ConFig.MODE_SELECT == 1) {

@@ -18,7 +18,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".control_panel_activity">
+        <activity android:name=".main_menu_activity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,18 +27,18 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".NextActivity"></activity>
+        <activity android:name=".game_menu_activity"></activity>
         <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".BlueRatio"></activity>
 
-        <activity android:name=".NextActivity2"></activity>
+        <activity android:name=".guideline_activity"></activity>
 
         <activity android:name=".MainActivity_3"></activity>
         <activity
             android:name=".about_us_activity"
             android:label="About Us"
-            android:parentActivityName="com.example.awonderfullife.our_game.control_panel_activity"></activity>
+            android:parentActivityName="com.example.awonderfullife.our_game.main_menu_activity"></activity>
         <activity android:name=".MainActivity_2"></activity>
 
     </application>

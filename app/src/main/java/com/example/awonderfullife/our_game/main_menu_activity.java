@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class control_panel_activity extends Activity {
+public class main_menu_activity extends Activity {
 
     private Button my_button = null;
     private Button my_button2 = null;
@@ -16,7 +16,7 @@ public class control_panel_activity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_helloworld);
+        setContentView(R.layout.activity_main_menu);
 
         my_button = (Button) findViewById(R.id.my_button);
         my_button.setText("开始游戏");
@@ -45,8 +45,8 @@ public class control_panel_activity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(control_panel_activity.this, NextActivity.class);
-            control_panel_activity.this.startActivity(intent);
+            intent.setClass(main_menu_activity.this, game_menu_activity.class);
+            main_menu_activity.this.startActivity(intent);
         }
     }
 
@@ -54,8 +54,8 @@ public class control_panel_activity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(control_panel_activity.this, NextActivity2.class);
-            control_panel_activity.this.startActivity(intent);
+            intent.setClass(main_menu_activity.this, guideline_activity.class);
+            main_menu_activity.this.startActivity(intent);
         }
     }
 
@@ -63,8 +63,8 @@ public class control_panel_activity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             Intent intent = new Intent();
-            intent.setClass(control_panel_activity.this, about_us_activity.class);
-            control_panel_activity.this.startActivity(intent);
+            intent.setClass(main_menu_activity.this, about_us_activity.class);
+            main_menu_activity.this.startActivity(intent);
         }
     }
 
@@ -74,7 +74,7 @@ public class control_panel_activity extends Activity {
      * 为了方便调试，这里就不进入主菜单界面了*/
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_helloworld, menu);
+        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
         return true;
     }*/
 }
