@@ -1,10 +1,10 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.view.View;//注意view的大小写
-import android.view.View.OnClickListener;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class main_menu_activity extends Activity {
@@ -16,21 +16,21 @@ public class main_menu_activity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.activity_main_menu);
 
-        my_button = (Button) findViewById(R.id.my_button);
+        my_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.my_button);
         my_button.setText("开始游戏");
         my_button.setOnClickListener(new MyButtonListener());
 
-        my_button2 = (Button) findViewById(R.id.left_button);
+        my_button2 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.left_button);
         my_button2.setText("操作说明");
         my_button2.setOnClickListener(new MyButtonListener2());
 
-        my_button3 = (Button) findViewById(R.id.mid_button);
+        my_button3 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.mid_button);
         my_button3.setText("关于我们");
         my_button3.setOnClickListener(new MyButtonListener3());
 
-        Button below_button = (Button) findViewById(R.id.below_button);
+        Button below_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.below_button);
         below_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

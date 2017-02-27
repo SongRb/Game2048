@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,6 +12,6 @@ public class guideline_activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guideline);
+        setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.activity_guideline);
     }
 }

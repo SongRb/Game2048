@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 /**
  * Created by 程涌潇 on 2016/5/17.

@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.AlertDialog;
 import android.content.Context;

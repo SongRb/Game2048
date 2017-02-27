@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.awonderfullife.our_game.MainActivity_2"
+    tools:context=".MainActivity_2"
     tools:ignore="MergeRootFrame">
 
     <LinearLayout
@@ -24,11 +24,11 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <com.example.awonderfullife.our_game.GameView
+    <cn.edu.sjtu.seiee.songrb.game2048.GameView
         android:id="@+id/gameView"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></com.example.awonderfullife.our_game.GameView>
+        android:layout_weight="1"></cn.edu.sjtu.seiee.songrb.game2048.GameView>
 
 
 </LinearLayout>

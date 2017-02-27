@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,9 +19,9 @@ public class MainActivity_2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bluetooth_game);
-        gameView = (GameView) findViewById(R.id.gameView);
-        tvScore = (TextView) findViewById(R.id.tvScore);
+        setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.activity_bluetooth_game);
+        gameView = (GameView) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.gameView);
+        tvScore = (TextView) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.tvScore);
         if (ConFig.MODE_SELECT == 1) {
             ConFig.mb.rwService.setMove(gameView);
         }
@@ -58,7 +58,7 @@ public class MainActivity_2 extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(cn.edu.sjtu.seiee.songrb.game2048.R.menu.main, menu);
         return true;
     }
 

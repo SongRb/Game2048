@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -48,10 +48,10 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
     private void handlerSelfMessage() {
         if (create_wait) {
             create_wait = false;
-            btn_create.setText(getResources().getString(R.string.wait_somebody));
+            btn_create.setText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.wait_somebody));
         } else {
             create_wait = true;
-            btn_create.setText(getResources().getString(R.string.create_room));
+            btn_create.setText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.create_room));
         }
     }
 
@@ -59,14 +59,14 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select);
+        setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.select);
 
-        ll_layout1 = (LinearLayout) findViewById(R.id.ll_layout1);
-        ll_layout2 = (LinearLayout) findViewById(R.id.ll_layout2);
-        lv = (ListView) findViewById(R.id.lv_container);
-        btn_local = (Button) findViewById(R.id.btn_local);
-        btn_net = (Button) findViewById(R.id.btn_net);
-        btn_create = (Button) findViewById(R.id.btn_create);
+        ll_layout1 = (LinearLayout) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.ll_layout1);
+        ll_layout2 = (LinearLayout) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.ll_layout2);
+        lv = (ListView) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.lv_container);
+        btn_local = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_local);
+        btn_net = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_net);
+        btn_create = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_create);
         lv.setOnItemClickListener(this);
         btn_local.setOnClickListener(this);
         btn_net.setOnClickListener(this);
@@ -122,20 +122,20 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
     public void onClick(View v) {
         // TODO Auto-generated method stub
         switch (v.getId()) {
-            case R.id.btn_local:
+            case cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_local:
                 ConFig.MODE_SELECT = 0;
                 Intent intent = new Intent(BlueRatio.this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_net:
+            case cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_net:
                 ConFig.MODE_SELECT = 1;
                 ll_layout1.setVisibility(View.GONE);
                 ll_layout2.setVisibility(View.VISIBLE);
                 break;
-            case R.id.btn_create:
+            case cn.edu.sjtu.seiee.songrb.game2048.R.id.btn_create:
                 // create a server
                 if (!mBtAdapter.isEnabled()) {
-                    Toast.makeText(this, R.string.bluetooth, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, cn.edu.sjtu.seiee.songrb.game2048.R.string.bluetooth, Toast.LENGTH_SHORT).show();
                 } else {
                     if (create_wait) {
                         serverThread = new ServerThread();
@@ -173,7 +173,7 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
                 startActivity(intent);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
-                Toast.makeText(BlueRatio.this, R.string.create_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BlueRatio.this, cn.edu.sjtu.seiee.songrb.game2048.R.string.create_error, Toast.LENGTH_SHORT).show();
                 handler.sendEmptyMessage(1);
                 e.printStackTrace();
             }
@@ -200,7 +200,7 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
                 startActivity(intent);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
-                Toast.makeText(BlueRatio.this, R.string.enter_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BlueRatio.this, cn.edu.sjtu.seiee.songrb.game2048.R.string.enter_error, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
             super.run();
@@ -212,7 +212,7 @@ public class BlueRatio extends Activity implements View.OnClickListener, OnItemC
         // connect to a server
         if (create_wait) {
             if (!mBtAdapter.isEnabled()) {
-                Toast.makeText(this, R.string.bluetooth, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, cn.edu.sjtu.seiee.songrb.game2048.R.string.bluetooth, Toast.LENGTH_SHORT).show();
             } else {
                 clientThread = new ClientThread(_bdList.get(position));
                 clientThread.start();

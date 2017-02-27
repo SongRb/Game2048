@@ -1,20 +1,19 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Window;
 
-
 /**
- * Created by 程涌潇 on 2016/5/28.
+ * Created by 程涌潇 on 2016/5/17.
  */
-public class MainActivity_3 extends Activity {
+public class MainActivity extends AppCompatActivity {
     protected final static String TAG = "MainActivity";
 
-    DoubleView view;
+    MainView view;
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
     public static final String SCORE = "score";
@@ -29,7 +28,7 @@ public class MainActivity_3 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        view = new DoubleView(getBaseContext());
+        view = new MainView(getBaseContext());
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         view.hasSaveState = settings.getBoolean("save_state", false);
@@ -83,7 +82,7 @@ public class MainActivity_3 extends Activity {
         for (int xx = 0; xx < field.length; xx++) {
             for (int yy = 0; yy < field[0].length; yy++) {
                 if (field[xx][yy] != null) {
-                    editor.putInt(xx + " " + yy, Math.abs(field[xx][yy].getValue()));
+                    editor.putInt(xx + " " + yy, field[xx][yy].getValue());
                 } else {
                     editor.putInt(xx + " " + yy, 0);
                 }
@@ -138,15 +137,5 @@ public class MainActivity_3 extends Activity {
         view.game.canUndo = settings.getBoolean(CAN_UNDO, view.game.canUndo);
         view.game.gameState = settings.getInt(GAME_STATE, view.game.gameState);
         view.game.lastGameState = settings.getInt(UNDO_GAME_STATE, view.game.lastGameState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
     }
 }

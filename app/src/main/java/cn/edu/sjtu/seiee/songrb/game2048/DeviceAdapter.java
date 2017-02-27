@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -41,15 +41,15 @@ class DeviceAdapter extends BaseAdapter {
         ViewHolder viewHolder = null;
         BluetoothDevice item = list.get(position);
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.list_item, null);
-            viewHolder = new ViewHolder((View) convertView.findViewById(R.id.list_child),
-                    (TextView) convertView.findViewById(R.id.chat_msg));
+            convertView = mInflater.inflate(cn.edu.sjtu.seiee.songrb.game2048.R.layout.list_item, null);
+            viewHolder = new ViewHolder((View) convertView.findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.list_child),
+                    (TextView) convertView.findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.chat_msg));
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.child.setBackgroundResource(R.drawable.msgbox_rec);    //找不到msgbox_rec
+        viewHolder.child.setBackgroundResource(cn.edu.sjtu.seiee.songrb.game2048.R.drawable.msgbox_rec);    //找不到msgbox_rec
         viewHolder.msg.setText(item.getName() + "\n" + item.getAddress());
         return convertView;
     }

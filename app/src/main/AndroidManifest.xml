@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.awonderfullife.our_game">
+    package="cn.edu.sjtu.seiee.songrb.game2048">
 
     android:versionCode="1"
     android:versionName="1.0" >
@@ -38,7 +38,7 @@
         <activity
             android:name=".about_us_activity"
             android:label="About Us"
-            android:parentActivityName="com.example.awonderfullife.our_game.main_menu_activity"></activity>
+            android:parentActivityName=".main_menu_activity"></activity>
         <activity android:name=".MainActivity_2"></activity>
 
     </application>

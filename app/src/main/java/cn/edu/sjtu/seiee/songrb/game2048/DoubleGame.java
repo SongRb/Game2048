@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,18 +9,16 @@ import java.util.Collections;
 import java.util.List;
 
 // This file controls the single mode of 2048
+class DoubleGame {
+    private static final int SPAWN_ANIMATION = -1;
+    private static final int MOVE_ANIMATION = 0;
+    private static final int MERGE_ANIMATION = 1;
 
+    private static final int FADE_GLOBAL_ANIMATION = 0;
 
-class SingleGame {
-    static final int SPAWN_ANIMATION = -1;
-    static final int MOVE_ANIMATION = 0;
-    static final int MERGE_ANIMATION = 1;
-
-    static final int FADE_GLOBAL_ANIMATION = 0;
-
-    private static final long MOVE_ANIMATION_TIME = MainView.BASE_ANIMATION_TIME;
-    private static final long SPAWN_ANIMATION_TIME = MainView.BASE_ANIMATION_TIME;
-    private static final long NOTIFICATION_ANIMATION_TIME = MainView.BASE_ANIMATION_TIME * 5;
+    private static final long MOVE_ANIMATION_TIME = DoubleView.BASE_ANIMATION_TIME;
+    private static final long SPAWN_ANIMATION_TIME = DoubleView.BASE_ANIMATION_TIME;
+    private static final long NOTIFICATION_ANIMATION_TIME = DoubleView.BASE_ANIMATION_TIME * 5;
     private static final long NOTIFICATION_DELAY_TIME = MOVE_ANIMATION_TIME + SPAWN_ANIMATION_TIME;
     private static final String HIGH_SCORE = "high score";
 
@@ -41,12 +39,13 @@ class SingleGame {
     AnimationGrid aGrid;
     final int numSquaresX = 4;
     final int numSquaresY = 4;
-    private final int startTiles = 2;
 
     int gameState = 0;
     boolean canUndo;
 
     public long score = 0;
+    long score_1 = 0;
+    long score_2 = 0;
     long highScore = 0;
 
     long lastScore = 0;
@@ -55,11 +54,14 @@ class SingleGame {
     private long bufferScore = 0;
     private int bufferGameState = 0;
 
+    boolean playerTurn = true;
+    private boolean clickState = true;
+
     private Context mContext;
 
-    private MainView mView;
+    private DoubleView mView;
 
-    SingleGame(Context context, MainView view) {
+    DoubleGame(Context context, DoubleView view) {
         mContext = context;
         mView = view;
         endingMaxValue = (int) Math.pow(2, view.numCellTypes - 1);
@@ -79,7 +81,8 @@ class SingleGame {
             highScore = score;
             recordHighScore();
         }
-        score = 0;
+        score_1 = 0;
+        score_2 = 0;
         gameState = GAME_NORMAL;
         addStartTiles();
         mView.refreshLastTime = true;
@@ -88,6 +91,7 @@ class SingleGame {
     }
 
     private void addStartTiles() {
+        int startTiles = 2;
         for (int xx = 0; xx < startTiles; xx++) {
             this.addRandomTile();
         }
@@ -96,8 +100,10 @@ class SingleGame {
     private void addRandomTile() {
         if (grid.isCellsAvailable()) {
             int value = Math.random() < 0.9 ? 2 : 4;
+            value = value * (playerTurn ? 1 : -1);
             Tile tile = new Tile(grid.randomAvailableCell(), value);
             spawnTile(tile);
+            //System.out.println("Hello");
         }
     }
 
@@ -195,8 +201,9 @@ class SingleGame {
                     Cell[] positions = findFarthestPosition(cell, vector);
                     Tile next = grid.getCellContent(positions[1]);
 
-                    if (next != null && next.getValue() == tile.getValue() && next.getMergedFrom() == null) {
-                        Tile merged = new Tile(positions[1], tile.getValue() * 2);
+                    if (next != null && Math.abs(next.getValue()) == Math.abs(tile.getValue()) &&
+                            next.getValue() * tile.getValue() != 0 && next.getMergedFrom() == null) {
+                        Tile merged = new Tile(positions[1], tile.getValue() + next.getValue());
                         Tile[] temp = {tile, next};
                         merged.setMergedFrom(temp);
 
@@ -213,6 +220,15 @@ class SingleGame {
                                 SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null);
 
                         // Update the score
+                        if (merged.getValue() > 0 && !playerTurn)
+                            score_1 += merged.getValue();
+                        else if (merged.getValue() < 0 && !playerTurn)
+                            score_2 += merged.getValue();
+                        else if (merged.getValue() > 0 && playerTurn)
+                            score_1 -= merged.getValue();
+                        else if (merged.getValue() < 0 && playerTurn)
+                            score_2 -= merged.getValue();
+
                         score = score + merged.getValue();
                         highScore = Math.max(score, highScore);
 
@@ -238,6 +254,8 @@ class SingleGame {
             saveUndoState();
             addRandomTile();
             checkLose();
+            clickState = true;
+            playerTurn = !playerTurn;
         }
         mView.resyncTime();
         mView.invalidate();
@@ -324,7 +342,8 @@ class SingleGame {
 
                         Tile other = grid.getCellContent(cell);
 
-                        if (other != null && other.getValue() == tile.getValue()) {
+                        if (other != null && Math.abs(other.getValue()) == Math.abs(tile.getValue())
+                                && other.getValue() * tile.getValue() != 0) {
                             return true;
                         }
                     }
@@ -356,4 +375,24 @@ class SingleGame {
     boolean canContinue() {
         return !(gameState == GAME_ENDLESS || gameState == GAME_ENDLESS_WON);
     }
+
+
+    //Added in multiplayer
+    public void touch(float x, float y) {
+        //if(gameState==GAME_NORMAL)
+        mView.printAll();
+    }
+
+    void setNull(int x, int y) {
+        if (x < 4 && y < 4) {
+            if (grid.field[x][y] != null && grid.field[x][y].getValue() == 0 && clickState) {
+                grid.field[x][y] = null;
+                clickState = false;
+                playerTurn = !playerTurn;
+            }
+            mView.resyncTime();
+            mView.invalidate();
+        }
+    }
+
 }

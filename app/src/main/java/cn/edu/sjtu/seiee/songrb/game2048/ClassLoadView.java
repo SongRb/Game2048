@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ public class ClassLoadView extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.load);
+        setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.load);
         new Handler().postDelayed(new Runnable() {
 
             @Override

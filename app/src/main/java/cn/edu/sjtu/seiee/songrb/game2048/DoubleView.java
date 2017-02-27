@@ -1,4 +1,4 @@
-package com.example.awonderfullife.our_game;
+package cn.edu.sjtu.seiee.songrb.game2048;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -90,12 +90,12 @@ public class DoubleView extends View {
             myColor = ContextCompat.getColor(getContext(),R.color.black);
         else
             myColor = ContextCompat.getColor(getContext(),R.color.white);*/
-        myColor = ContextCompat.getColor(getContext(), R.color.black);
+        myColor = ContextCompat.getColor(getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.color.black);
         paint.setColor(myColor);
         if (game.playerTurn)
-            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), R.drawable.background_rectangle);
+            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.drawable.background_rectangle);
         else
-            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), R.drawable.background_rectangle_1);
+            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.drawable.background_rectangle_1);
         canvas.drawBitmap(background, 0, 0, paint);
         drawScoreText(canvas);
         if (!game.isActive() && !game.aGrid.isAnimationActive()) {
@@ -182,7 +182,7 @@ public class DoubleView extends View {
         backgroundRectangle.draw(canvas);
         paint.setTextSize(titleTextSize);
         paint.setColor(TEXT_BROWN);
-        canvas.drawText(getResources().getString(R.string.score), 2 * sXScore + textMiddleScore - eXScore, titleStartYAll, paint);
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.score), 2 * sXScore + textMiddleScore - eXScore, titleStartYAll, paint);
         paint.setTextSize(bodyTextSize);
         paint.setColor(TEXT_BLACK);
         canvas.drawText(String.valueOf(game.score_2), 2 * sXScore + textMiddleScore - eXScore, bodyStartYAll, paint);
@@ -193,7 +193,7 @@ public class DoubleView extends View {
         backgroundRectangle.draw(canvas);
         paint.setTextSize(titleTextSize);
         paint.setColor(TEXT_BROWN);
-        canvas.drawText(getResources().getString(R.string.score), sXScore + textMiddleScore, titleStartYAll, paint);
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.score), sXScore + textMiddleScore, titleStartYAll, paint);
         paint.setTextSize(bodyTextSize);
         paint.setColor(TEXT_BLACK);
         canvas.drawText(String.valueOf(game.score_1), sXScore + textMiddleScore, bodyStartYAll, paint);
@@ -203,7 +203,7 @@ public class DoubleView extends View {
         backgroundRectangle.draw(canvas);
         paint.setTextSize(titleTextSize);
         paint.setColor(TEXT_BROWN);
-        canvas.drawText(getResources().getString(R.string.score), sXScore + textMiddleScore - 200, titleStartYAll, paint);
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.score), sXScore + textMiddleScore - 200, titleStartYAll, paint);
         paint.setTextSize(bodyTextSize);
         paint.setColor(TEXT_BLACK);
         canvas.drawText(String.valueOf(game.score_2), sXScore + textMiddleScore - 200, bodyStartYAll, paint);
@@ -229,7 +229,7 @@ public class DoubleView extends View {
         }
 
         drawDrawable(canvas,
-                getResources().getDrawable(R.drawable.ic_action_refresh),
+                getResources().getDrawable(cn.edu.sjtu.seiee.songrb.game2048.R.drawable.ic_action_refresh),
                 sXNewGame + iconPaddingSize,
                 sYIcons + iconPaddingSize,
                 sXNewGame + iconSize - iconPaddingSize,
@@ -247,7 +247,7 @@ public class DoubleView extends View {
         );
 
         drawDrawable(canvas,
-                getResources().getDrawable(R.drawable.ic_action_undo),
+                getResources().getDrawable(cn.edu.sjtu.seiee.songrb.game2048.R.drawable.ic_action_undo),
                 sXUndo + iconPaddingSize,
                 sYIcons + iconPaddingSize,
                 sXUndo + iconSize - iconPaddingSize,
@@ -263,7 +263,7 @@ public class DoubleView extends View {
         paint.setTextAlign(Paint.Align.LEFT);
         int textShiftY = centerText() * 2;
         int headerStartY = sYAll - textShiftY;
-        canvas.drawText(getResources().getString(R.string.header), startingX, headerStartY, paint);
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.header), startingX, headerStartY, paint);
     }
 
     private void drawInstructions(Canvas canvas) {
@@ -272,7 +272,7 @@ public class DoubleView extends View {
         paint.setTextSize(instructionsTextSize);
         paint.setTextAlign(Paint.Align.LEFT);
         int textShiftY = centerText() * 2;
-        canvas.drawText(getResources().getString(R.string.instructions),
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.instructions),
                 startingX, endingY - textShiftY + textPaddingSize, paint);
     }
 
@@ -285,8 +285,9 @@ public class DoubleView extends View {
         Resources resources = getResources();
         Drawable backgroundCell;
         if (game.playerTurn)
-            backgroundCell = resources.getDrawable(R.drawable.cell_rectangle_1);
-        else backgroundCell = resources.getDrawable(R.drawable.cell_rectangle_1);
+            backgroundCell = resources.getDrawable(cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_1);
+        else
+            backgroundCell = resources.getDrawable(cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_1);
         // Outputting the game grid
         for (int xx = 0; xx < game.numSquaresX; xx++) {
             for (int yy = 0; yy < game.numSquaresY; yy++) {
@@ -428,7 +429,7 @@ public class DoubleView extends View {
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTextSize(bodyTextSize);
         paint.setColor(TEXT_BLACK);
-        canvas.drawText(getResources().getString(R.string.endless), startingX, sYIcons - centerText() * 2, paint);
+        canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.endless), startingX, sYIcons - centerText() * 2, paint);
     }
 
     private void createEndGameStates(Canvas canvas, boolean win, boolean showButton) {
@@ -445,10 +446,10 @@ public class DoubleView extends View {
             paint.setTextSize(gameOverTextSize);
             paint.setTextAlign(Paint.Align.CENTER);
             int textBottom = middleY - centerText();
-            canvas.drawText(getResources().getString(R.string.you_win), middleX, textBottom, paint);
+            canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.you_win), middleX, textBottom, paint);
             paint.setTextSize(bodyTextSize);
-            String text = showButton ? getResources().getString(R.string.go_on) :
-                    getResources().getString(R.string.for_now);
+            String text = showButton ? getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.go_on) :
+                    getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.for_now);
             canvas.drawText(text, middleX, textBottom + textPaddingSize * 2 - centerText() * 2, paint);
         } else {
             fadeRectangle.setAlpha(127);
@@ -458,7 +459,7 @@ public class DoubleView extends View {
             paint.setAlpha(255);
             paint.setTextSize(gameOverTextSize);
             paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(getResources().getString(R.string.game_over), middleX, middleY - centerText(), paint);
+            canvas.drawText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.game_over), middleX, middleY - centerText(), paint);
         }
     }
 
@@ -500,29 +501,29 @@ public class DoubleView extends View {
 
     private int[] getCellRectangleIds() {
         int[] cellRectangleIds = new int[numCellTypes];
-        cellRectangleIds[0] = R.drawable.cell_rectangle_0;
-        cellRectangleIds[1] = R.drawable.cell_rectangle_2;
-        cellRectangleIds[2] = R.drawable.cell_rectangle_4;
-        cellRectangleIds[3] = R.drawable.cell_rectangle_8;
-        cellRectangleIds[4] = R.drawable.cell_rectangle_16;
-        cellRectangleIds[5] = R.drawable.cell_rectangle_32;
-        cellRectangleIds[6] = R.drawable.cell_rectangle_64;
-        cellRectangleIds[7] = R.drawable.cell_rectangle_128;
-        cellRectangleIds[8] = R.drawable.cell_rectangle_256;
-        cellRectangleIds[9] = R.drawable.cell_rectangle_512;
-        cellRectangleIds[10] = R.drawable.cell_rectangle_1024;
-        cellRectangleIds[11] = R.drawable.cell_rectangle_2048;
-        cellRectangleIds[12] = R.drawable.cell_reversed_rectangle_2;
-        cellRectangleIds[13] = R.drawable.cell_reversed_rectangle_4;
-        cellRectangleIds[14] = R.drawable.cell_reversed_rectangle_8;
-        cellRectangleIds[15] = R.drawable.cell_reversed_rectangle_16;
-        cellRectangleIds[16] = R.drawable.cell_reversed_rectangle_32;
-        cellRectangleIds[17] = R.drawable.cell_reversed_rectangle_64;
-        cellRectangleIds[18] = R.drawable.cell_reversed_rectangle_128;
-        cellRectangleIds[19] = R.drawable.cell_reversed_rectangle_256;
-        cellRectangleIds[20] = R.drawable.cell_reversed_rectangle_512;
-        cellRectangleIds[21] = R.drawable.cell_reversed_rectangle_1024;
-        cellRectangleIds[22] = R.drawable.cell_reversed_rectangle_2048;
+        cellRectangleIds[0] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_0;
+        cellRectangleIds[1] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_2;
+        cellRectangleIds[2] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_4;
+        cellRectangleIds[3] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_8;
+        cellRectangleIds[4] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_16;
+        cellRectangleIds[5] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_32;
+        cellRectangleIds[6] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_64;
+        cellRectangleIds[7] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_128;
+        cellRectangleIds[8] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_256;
+        cellRectangleIds[9] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_512;
+        cellRectangleIds[10] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_1024;
+        cellRectangleIds[11] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_rectangle_2048;
+        cellRectangleIds[12] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_2;
+        cellRectangleIds[13] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_4;
+        cellRectangleIds[14] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_8;
+        cellRectangleIds[15] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_16;
+        cellRectangleIds[16] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_32;
+        cellRectangleIds[17] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_64;
+        cellRectangleIds[18] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_128;
+        cellRectangleIds[19] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_256;
+        cellRectangleIds[20] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_512;
+        cellRectangleIds[21] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_1024;
+        cellRectangleIds[22] = cn.edu.sjtu.seiee.songrb.game2048.R.drawable.cell_reversed_rectangle_2048;
         return cellRectangleIds;
     }
 
@@ -596,8 +597,8 @@ public class DoubleView extends View {
         titleStartYAll = (int) (sYAll + textPaddingSize + titleTextSize / 2 - textShiftYAll);
         bodyStartYAll = (int) (titleStartYAll + textPaddingSize + titleTextSize / 2 + bodyTextSize / 2);
 
-        titleWidthHighScore = (int) (paint.measureText(getResources().getString(R.string.high_score)));
-        titleWidthScore = (int) (paint.measureText(getResources().getString(R.string.score)));
+        titleWidthHighScore = (int) (paint.measureText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.high_score)));
+        titleWidthScore = (int) (paint.measureText(getResources().getString(cn.edu.sjtu.seiee.songrb.game2048.R.string.score)));
         paint.setTextSize(bodyTextSize);
         textShiftYAll = centerText();
         eYAll = (int) (bodyStartYAll + textShiftYAll + bodyTextSize / 2 + textPaddingSize);
@@ -621,13 +622,13 @@ public class DoubleView extends View {
         try {
             System.out.print("Hello, you looks so happy!");
             //Getting assets
-            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), R.drawable.background_rectangle);
-            lightUpRectangle = ContextCompat.getDrawable(this.getContext(), R.drawable.light_up_rectangle);
-            fadeRectangle = ContextCompat.getDrawable(this.getContext(), R.drawable.fade_rectangle);
-            TEXT_WHITE = ContextCompat.getColor(this.getContext(), R.color.text_white);
-            TEXT_BLACK = ContextCompat.getColor(this.getContext(), R.color.text_black);
-            TEXT_BROWN = ContextCompat.getColor(this.getContext(), R.color.text_brown);
-            this.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.background));
+            backgroundRectangle = ContextCompat.getDrawable(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.drawable.background_rectangle);
+            lightUpRectangle = ContextCompat.getDrawable(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.drawable.light_up_rectangle);
+            fadeRectangle = ContextCompat.getDrawable(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.drawable.fade_rectangle);
+            TEXT_WHITE = ContextCompat.getColor(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.color.text_white);
+            TEXT_BLACK = ContextCompat.getColor(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.color.text_black);
+            TEXT_BROWN = ContextCompat.getColor(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.color.text_brown);
+            this.setBackgroundColor(ContextCompat.getColor(this.getContext(), cn.edu.sjtu.seiee.songrb.game2048.R.color.background));
             Typeface font = Typeface.createFromAsset(resources.getAssets(), "ClearSans-Bold.ttf");
             paint.setTypeface(font);
             paint.setAntiAlias(true);
