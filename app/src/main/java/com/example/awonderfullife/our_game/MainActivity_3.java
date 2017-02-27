@@ -14,7 +14,7 @@ import android.view.Window;
 public class MainActivity_3 extends Activity {
     protected final static String TAG = "MainActivity";
 
-    MainView_2 view;
+    DoubleView view;
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
     public static final String SCORE = "score";
@@ -29,7 +29,7 @@ public class MainActivity_3 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        view = new MainView_2(getBaseContext());
+        view = new DoubleView(getBaseContext());
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         view.hasSaveState = settings.getBoolean("save_state", false);

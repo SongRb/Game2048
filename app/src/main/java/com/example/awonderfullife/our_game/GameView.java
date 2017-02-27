@@ -14,9 +14,8 @@ import android.widget.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by 程涌潇 on 2016/5/24.
- */
+// Bluetooth support
+
 public class GameView extends GridLayout implements RWService.Move {
     public GameView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);

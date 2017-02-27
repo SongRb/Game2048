@@ -13,13 +13,12 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-/**
- * Created by 程涌潇 on 2016/5/17.
- */
+// This should be the original view from the open source app
+
 public class MainView extends View {
     //Internal variables
     Paint paint = new Paint();
-    public MainGame game;
+    public SingleGame game;
     public boolean hasSaveState = false;
     public final int numCellTypes = 18;
     public boolean continueButtonEnabled = false;
@@ -293,14 +292,14 @@ public class MainView extends View {
                     for (int i = aArray.size() - 1; i >= 0; i--) {
                         AnimationCell aCell = aArray.get(i);
                         //If this animation is not active, skip it
-                        if (aCell.getAnimationType() == MainGame.SPAWN_ANIMATION) {
+                        if (aCell.getAnimationType() == SingleGame.SPAWN_ANIMATION) {
                             animated = true;
                         }
                         if (!aCell.isActive()) {
                             continue;
                         }
 
-                        if (aCell.getAnimationType() == MainGame.SPAWN_ANIMATION) { // Spawning animation
+                        if (aCell.getAnimationType() == SingleGame.SPAWN_ANIMATION) { // Spawning animation
                             double percentDone = aCell.getPercentageDone();
                             float textScaleSize = (float) (percentDone);
                             paint.setTextSize(textSize * textScaleSize);
@@ -308,7 +307,7 @@ public class MainView extends View {
                             float cellScaleSize = cellSize / 2 * (1 - textScaleSize);
                             bitmapCell[index].setBounds((int) (sX + cellScaleSize), (int) (sY + cellScaleSize), (int) (eX - cellScaleSize), (int) (eY - cellScaleSize));
                             bitmapCell[index].draw(canvas);
-                        } else if (aCell.getAnimationType() == MainGame.MERGE_ANIMATION) { // Merging Animation
+                        } else if (aCell.getAnimationType() == SingleGame.MERGE_ANIMATION) { // Merging Animation
                             double percentDone = aCell.getPercentageDone();
                             float textScaleSize = (float) (1 + INITIAL_VELOCITY * percentDone
                                     + MERGING_ACCELERATION * percentDone * percentDone / 2);
@@ -317,7 +316,7 @@ public class MainView extends View {
                             float cellScaleSize = cellSize / 2 * (1 - textScaleSize);
                             bitmapCell[index].setBounds((int) (sX + cellScaleSize), (int) (sY + cellScaleSize), (int) (eX - cellScaleSize), (int) (eY - cellScaleSize));
                             bitmapCell[index].draw(canvas);
-                        } else if (aCell.getAnimationType() == MainGame.MOVE_ANIMATION) {  // Moving animation
+                        } else if (aCell.getAnimationType() == SingleGame.MOVE_ANIMATION) {  // Moving animation
                             double percentDone = aCell.getPercentageDone();
                             int tempIndex = index;
                             if (aArray.size() >= 2) {
@@ -349,7 +348,7 @@ public class MainView extends View {
         double alphaChange = 1;
         continueButtonEnabled = false;
         for (AnimationCell animation : game.aGrid.globalAnimation) {
-            if (animation.getAnimationType() == MainGame.FADE_GLOBAL_ANIMATION) {
+            if (animation.getAnimationType() == SingleGame.FADE_GLOBAL_ANIMATION) {
                 alphaChange = animation.getPercentageDone();
             }
         }
@@ -552,7 +551,7 @@ public class MainView extends View {
 
         Resources resources = context.getResources();
         //Loading resources
-        game = new MainGame(context, this);
+        game = new SingleGame(context, this);
         try {
 
             //Getting assets
@@ -569,7 +568,7 @@ public class MainView extends View {
         } catch (Exception e) {
             System.out.println("Error getting assets?");
         }
-        setOnTouchListener(new InputListener(this));
+        setOnTouchListener(new InputListenerSingle(this));
         game.newGame();
     }
 }

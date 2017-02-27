@@ -5,12 +5,15 @@ import java.util.ArrayList;
 /**
  * Created by 程涌潇 on 2016/5/17.
  */
-public class Grid {
-    public Tile[][] field;
-    public Tile[][] undoField;
+class Grid {
+    Tile[][] field;
+    Tile[][] undoField;
     private Tile[][] bufferField;
 
-    public Grid(int sizeX, int sizeY) {
+    Grid() {
+    }
+
+    Grid(int sizeX, int sizeY) {
         field = new Tile[sizeX][sizeY];
         undoField = new Tile[sizeX][sizeY];
         bufferField = new Tile[sizeX][sizeY];
@@ -18,7 +21,7 @@ public class Grid {
         clearUndoGrid();
     }
 
-    public Cell randomAvailableCell() {
+    Cell randomAvailableCell() {
         ArrayList<Cell> availableCells = getAvailableCells();
         if (availableCells.size() >= 1) {
             return availableCells.get((int) Math.floor(Math.random() * availableCells.size()));
@@ -26,7 +29,7 @@ public class Grid {
         return null;
     }
 
-    public ArrayList<Cell> getAvailableCells() {
+    private ArrayList<Cell> getAvailableCells() {
         ArrayList<Cell> availableCells = new ArrayList<Cell>();
         for (int xx = 0; xx < field.length; xx++) {
             for (int yy = 0; yy < field[0].length; yy++) {
@@ -38,19 +41,19 @@ public class Grid {
         return availableCells;
     }
 
-    public boolean isCellsAvailable() {
+    boolean isCellsAvailable() {
         return (getAvailableCells().size() >= 1);
     }
 
-    public boolean isCellAvailable(Cell cell) {
+    boolean isCellAvailable(Cell cell) {
         return !isCellOccupied(cell);
     }
 
-    public boolean isCellOccupied(Cell cell) {
+    boolean isCellOccupied(Cell cell) {
         return (getCellContent(cell) != null);
     }
 
-    public Tile getCellContent(Cell cell) {
+    Tile getCellContent(Cell cell) {
         if (cell != null && isCellWithinBounds(cell)) {
             return field[cell.getX()][cell.getY()];
         } else {
@@ -58,7 +61,7 @@ public class Grid {
         }
     }
 
-    public Tile getCellContent(int x, int y) {
+    Tile getCellContent(int x, int y) {
         if (isCellWithinBounds(x, y)) {
             return field[x][y];
         } else {
@@ -66,25 +69,25 @@ public class Grid {
         }
     }
 
-    public boolean isCellWithinBounds(Cell cell) {
+    boolean isCellWithinBounds(Cell cell) {
         return 0 <= cell.getX() && cell.getX() < field.length
                 && 0 <= cell.getY() && cell.getY() < field[0].length;
     }
 
-    public boolean isCellWithinBounds(int x, int y) {
+    private boolean isCellWithinBounds(int x, int y) {
         return 0 <= x && x < field.length
                 && 0 <= y && y < field[0].length;
     }
 
-    public void insertTile(Tile tile) {
+    void insertTile(Tile tile) {
         field[tile.getX()][tile.getY()] = tile;
     }
 
-    public void removeTile(Tile tile) {
+    void removeTile(Tile tile) {
         field[tile.getX()][tile.getY()] = null;
     }
 
-    public void saveTiles() {
+    void saveTiles() {
         for (int xx = 0; xx < bufferField.length; xx++) {
             for (int yy = 0; yy < bufferField[0].length; yy++) {
                 if (bufferField[xx][yy] == null) {
@@ -96,7 +99,7 @@ public class Grid {
         }
     }
 
-    public void prepareSaveTiles() {
+    void prepareSaveTiles() {
         for (int xx = 0; xx < field.length; xx++) {
             for (int yy = 0; yy < field[0].length; yy++) {
                 if (field[xx][yy] == null) {
@@ -108,7 +111,7 @@ public class Grid {
         }
     }
 
-    public void revertTiles() {
+    void revertTiles() {
         for (int xx = 0; xx < undoField.length; xx++) {
             for (int yy = 0; yy < undoField[0].length; yy++) {
                 if (undoField[xx][yy] == null) {
@@ -120,7 +123,7 @@ public class Grid {
         }
     }
 
-    public void clearGrid() {
+    void clearGrid() {
         for (int xx = 0; xx < field.length; xx++) {
             for (int yy = 0; yy < field[0].length; yy++) {
                 field[xx][yy] = null;
@@ -128,7 +131,7 @@ public class Grid {
         }
     }
 
-    public void clearUndoGrid() {
+    private void clearUndoGrid() {
         for (int xx = 0; xx < field.length; xx++) {
             for (int yy = 0; yy < field[0].length; yy++) {
                 undoField[xx][yy] = null;

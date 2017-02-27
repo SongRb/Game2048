@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /**
  * Created by 程涌潇 on 2016/5/17.
  */
-public class AnimationGrid {
-    public ArrayList<AnimationCell>[][] field;
-    int activeAnimations = 0;
-    boolean oneMoreFrame = false;
-    public ArrayList<AnimationCell> globalAnimation = new ArrayList<AnimationCell>();
+class AnimationGrid extends Grid {
+    private ArrayList[][] field;
+    private int activeAnimations = 0;
+    private boolean oneMoreFrame = false;
+    ArrayList<AnimationCell> globalAnimation = new ArrayList<AnimationCell>();
 
-    public AnimationGrid(int x, int y) {
+    AnimationGrid(int x, int y) {
         field = new ArrayList[x][y];
 
         for (int xx = 0; xx < x; xx++) {
@@ -21,7 +21,7 @@ public class AnimationGrid {
         }
     }
 
-    public void startAnimation(int x, int y, int animationType, long length, long delay, int[] extras) {
+    void startAnimation(int x, int y, int animationType, long length, long delay, int[] extras) {
         AnimationCell animationToAdd = new AnimationCell(x, y, animationType, length, delay, extras);
         if (x == -1 && y == -1) {
             globalAnimation.add(animationToAdd);
@@ -31,7 +31,7 @@ public class AnimationGrid {
         activeAnimations = activeAnimations + 1;
     }
 
-    public void tickAll(long timeElapsed) {
+    void tickAll(long timeElapsed) {
         ArrayList<AnimationCell> cancelledAnimations = new ArrayList<AnimationCell>();
         for (AnimationCell animation : globalAnimation) {
             animation.tick(timeElapsed);
@@ -41,7 +41,7 @@ public class AnimationGrid {
             }
         }
 
-        for (ArrayList<AnimationCell>[] array : field) {
+        for (ArrayList[] array : field) {
             for (ArrayList<AnimationCell> list : array) {
                 for (AnimationCell animation : list) {
                     animation.tick(timeElapsed);
@@ -58,7 +58,7 @@ public class AnimationGrid {
         }
     }
 
-    public boolean isAnimationActive() {
+    boolean isAnimationActive() {
         if (activeAnimations != 0) {
             oneMoreFrame = true;
             return true;
@@ -70,11 +70,11 @@ public class AnimationGrid {
         }
     }
 
-    public ArrayList<AnimationCell> getAnimationCell(int x, int y) {
+    ArrayList<AnimationCell> getAnimationCell(int x, int y) {
         return field[x][y];
     }
 
-    public void cancelAnimations() {
+    void cancelAnimations() {
         for (ArrayList<AnimationCell>[] array : field) {
             for (ArrayList<AnimationCell> list : array) {
                 list.clear();
@@ -84,7 +84,7 @@ public class AnimationGrid {
         activeAnimations = 0;
     }
 
-    public void cancelAnimation(AnimationCell animation) {
+    private void cancelAnimation(AnimationCell animation) {
         if (animation.getX() == -1 && animation.getY() == -1) {
             globalAnimation.remove(animation);
         } else {

@@ -1,13 +1,12 @@
 package com.example.awonderfullife.our_game;
 
-/**
- * Created by 程涌潇 on 2016/5/17.
- */
-public class Cell {
+// Basic cell class
+
+class Cell {
     private int x;
     private int y;
 
-    public Cell(int x, int y) {
+    Cell(int x, int y) {
         this.x = x;
         this.y = y;
     }

@@ -13,13 +13,11 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-/**
- * Created by 程涌潇 on 2016/5/28.
- */
-public class MainView_2 extends View {
+
+public class DoubleView extends View {
     //Internal variables
     Paint paint = new Paint();
-    public MainGame_2 game;
+    public DoubleGame game;
     public boolean hasSaveState = false;
     public final int numCellTypes = 23;
     public boolean continueButtonEnabled = false;
@@ -346,14 +344,14 @@ public class MainView_2 extends View {
                     for (int i = aArray.size() - 1; i >= 0; i--) {
                         AnimationCell aCell = aArray.get(i);
                         //If this animation is not active, skip it
-                        if (aCell.getAnimationType() == MainGame.SPAWN_ANIMATION) {
+                        if (aCell.getAnimationType() == SingleGame.SPAWN_ANIMATION) {
                             animated = true;
                         }
                         if (!aCell.isActive()) {
                             continue;
                         }
 
-                        if (aCell.getAnimationType() == MainGame.SPAWN_ANIMATION) { // Spawning animation
+                        if (aCell.getAnimationType() == SingleGame.SPAWN_ANIMATION) { // Spawning animation
                             double percentDone = aCell.getPercentageDone();
                             float textScaleSize = (float) (percentDone);
                             paint.setTextSize(textSize * textScaleSize);
@@ -361,7 +359,7 @@ public class MainView_2 extends View {
                             float cellScaleSize = cellSize / 2 * (1 - textScaleSize);
                             bitmapCell[index].setBounds((int) (sX + cellScaleSize), (int) (sY + cellScaleSize), (int) (eX - cellScaleSize), (int) (eY - cellScaleSize));
                             bitmapCell[index].draw(canvas);
-                        } else if (aCell.getAnimationType() == MainGame.MERGE_ANIMATION) { // Merging Animation
+                        } else if (aCell.getAnimationType() == SingleGame.MERGE_ANIMATION) { // Merging Animation
                             double percentDone = aCell.getPercentageDone();
                             float textScaleSize = (float) (1 + INITIAL_VELOCITY * percentDone
                                     + MERGING_ACCELERATION * percentDone * percentDone / 2);
@@ -370,7 +368,7 @@ public class MainView_2 extends View {
                             float cellScaleSize = cellSize / 2 * (1 - textScaleSize);
                             bitmapCell[index].setBounds((int) (sX + cellScaleSize), (int) (sY + cellScaleSize), (int) (eX - cellScaleSize), (int) (eY - cellScaleSize));
                             bitmapCell[index].draw(canvas);
-                        } else if (aCell.getAnimationType() == MainGame.MOVE_ANIMATION) {  // Moving animation
+                        } else if (aCell.getAnimationType() == SingleGame.MOVE_ANIMATION) {  // Moving animation
                             double percentDone = aCell.getPercentageDone();
                             int tempIndex = index;
                             if (aArray.size() >= 2 && tempIndex != 0) {
@@ -402,7 +400,7 @@ public class MainView_2 extends View {
         double alphaChange = 1;
         continueButtonEnabled = false;
         for (AnimationCell animation : game.aGrid.globalAnimation) {
-            if (animation.getAnimationType() == MainGame.FADE_GLOBAL_ANIMATION) {
+            if (animation.getAnimationType() == SingleGame.FADE_GLOBAL_ANIMATION) {
                 alphaChange = animation.getPercentageDone();
             }
         }
@@ -614,12 +612,12 @@ public class MainView_2 extends View {
         return (int) ((paint.descent() + paint.ascent()) / 2);
     }
 
-    public MainView_2(Context context) {
+    public DoubleView(Context context) {
         super(context);
 
         Resources resources = context.getResources();
         //Loading resources
-        game = new MainGame_2(context, this);
+        game = new DoubleGame(context, this);
         try {
             System.out.print("Hello, you looks so happy!");
             //Getting assets
@@ -636,7 +634,7 @@ public class MainView_2 extends View {
         } catch (Exception e) {
             System.out.println("Error getting assets?");
         }
-        setOnTouchListener(new InputListener_2(this));
+        setOnTouchListener(new InputListenerDouble(this));
         game.newGame();
     }
 

@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-/**
- * Created by 程涌潇 on 2016/5/24.
- */
+// Bluetooth
+
+
 public class MainActivity_2 extends Activity {
     public MainActivity_2() {
         mainActivity = this;
@@ -19,7 +19,7 @@ public class MainActivity_2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_game);
+        setContentView(R.layout.activity_bluetooth_game);
         gameView = (GameView) findViewById(R.id.gameView);
         tvScore = (TextView) findViewById(R.id.tvScore);
         if (ConFig.MODE_SELECT == 1) {

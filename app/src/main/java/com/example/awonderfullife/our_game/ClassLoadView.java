@@ -5,9 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-/**
- * Created by 程涌潇 on 2016/5/24.
- */
+// This has sth. to do with bluetooth
+
 public class ClassLoadView extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

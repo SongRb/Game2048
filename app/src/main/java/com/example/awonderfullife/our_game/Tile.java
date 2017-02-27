@@ -1,36 +1,34 @@
 package com.example.awonderfullife.our_game;
 
-/**
- * Created by 程涌潇 on 2016/5/17.
- */
-public class Tile extends Cell {
+
+class Tile extends Cell {
     private int value;
     private Tile[] mergedFrom = null;
 
-    public Tile(int x, int y, int value) {
+    Tile(int x, int y, int value) {
         super(x, y);
         this.value = value;
     }
 
-    public Tile(Cell cell, int value) {
+    Tile(Cell cell, int value) {
         super(cell.getX(), cell.getY());
         this.value = value;
     }
 
-    public void updatePosition(Cell cell) {
+    void updatePosition(Cell cell) {
         this.setX(cell.getX());
         this.setY(cell.getY());
     }
 
-    public int getValue() {
+    int getValue() {
         return this.value;
     }
 
-    public Tile[] getMergedFrom() {
+    Tile[] getMergedFrom() {
         return mergedFrom;
     }
 
-    public void setMergedFrom(Tile[] tile) {
+    void setMergedFrom(Tile[] tile) {
         mergedFrom = tile;
     }
 }

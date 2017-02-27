@@ -10,14 +10,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by 程涌潇 on 2016/5/23.
- */
-public class DeviceAdapter extends BaseAdapter {
+// Bluetooth Support
+
+class DeviceAdapter extends BaseAdapter {
     private List<BluetoothDevice> list;
     private LayoutInflater mInflater;
 
-    public DeviceAdapter(Context context, List<BluetoothDevice> l) {
+    DeviceAdapter(Context context, List<BluetoothDevice> l) {
         list = l;
         mInflater = LayoutInflater.from(context);
     }
@@ -55,11 +54,11 @@ public class DeviceAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class ViewHolder {
-        protected View child;
-        protected TextView msg;
+    private class ViewHolder {
+        View child;
+        TextView msg;
 
-        public ViewHolder(View child, TextView msg) {
+        ViewHolder(View child, TextView msg) {
             this.child = child;
             this.msg = msg;
         }

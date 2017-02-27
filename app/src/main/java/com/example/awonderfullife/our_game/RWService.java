@@ -10,9 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by 程涌潇 on 2016/5/23.
- */
+// Bluetooth support
+
 public class RWService extends Service {
     private final GetMyBinder mBinder = new GetMyBinder();
 

@@ -3,11 +3,10 @@ package com.example.awonderfullife.our_game;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by 程涌潇 on 2016/5/18.
- */
-public class InputListener implements View.OnTouchListener {
-    private static final int SWIPE_MIN_DISTANCE = 0;
+// Input control for double mode
+
+class InputListenerDouble implements View.OnTouchListener {
+    private static final int SWIPE_MIN_DISTANCE = 100;
     private static final int SWIPE_THRESHOLD_VELOCITY = 25;
     private static final int MOVE_THRESHOLD = 250;
     private static final int RESET_STARTING = 10;
@@ -24,9 +23,9 @@ public class InputListener implements View.OnTouchListener {
     private int veryLastDirection = 1;
     private boolean hasMoved = false;
 
-    MainView mView;
+    private DoubleView mView;
 
-    public InputListener(MainView view) {
+    InputListenerDouble(DoubleView view) {
         super();
         this.mView = view;
     }
@@ -37,6 +36,10 @@ public class InputListener implements View.OnTouchListener {
             case MotionEvent.ACTION_DOWN:
                 x = event.getX();
                 y = event.getY();
+                int prevX = 0;
+                prevX = findCoordinate(x, y)[0];
+                int prevY = 0;
+                prevY = findCoordinate(x, y)[1];
                 startingX = x;
                 startingY = y;
                 previousX = x;
@@ -103,6 +106,7 @@ public class InputListener implements View.OnTouchListener {
                             startingY = y;
                         }
                     }
+
                 }
                 previousX = x;
                 previousY = y;
@@ -112,19 +116,50 @@ public class InputListener implements View.OnTouchListener {
                 y = event.getY();
                 previousDirection = 1;
                 veryLastDirection = 1;
+                System.out.println(hasMoved ? "Yes" : "No");
                 //"Menu" inputs
                 if (!hasMoved) {
                     if (iconPressed(mView.sXNewGame, mView.sYIcons)) {
+
                         mView.game.newGame();
+
                     } else if (iconPressed(mView.sXUndo, mView.sYIcons)) {
                         mView.game.revertUndoState();
                     } else if (isTap(2) && inRange(mView.startingX, x, mView.endingX)
                             && inRange(mView.startingY, x, mView.endingY) && mView.continueButtonEnabled) {
                         mView.game.setEndlessMode();
+                    } else if (pathMoved() < SWIPE_MIN_DISTANCE * SWIPE_MIN_DISTANCE) {
+                        int tarX = findCoordinate(x, y)[0];
+                        int tarY = findCoordinate(x, y)[1];
+                        System.out.print("Hello, you looks so happy!");
+                        mView.game.setNull(tarX, tarY);
                     }
+
                 }
         }
         return true;
+    }
+
+/*
+    public boolean onClick(View view, MotionEvent event)
+    {
+
+
+return false;
+    }
+*/
+
+
+    private int[] findCoordinate(float x, float y) {
+        int[] coor = new int[2];
+        int startX = mView.startingX;
+        int startY = mView.startingY;
+        int gridWidth = mView.getGridWidth();
+        int cellSize = mView.getCellSize();
+
+        coor[0] = (int) ((x - startX - gridWidth) / (cellSize + gridWidth));
+        coor[1] = (int) ((y - startY - gridWidth) / (cellSize + gridWidth));
+        return coor;
     }
 
     private float pathMoved() {

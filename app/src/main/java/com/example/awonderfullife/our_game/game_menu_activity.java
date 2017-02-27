@@ -9,15 +9,17 @@ import android.view.View.OnClickListener;
 
 public class game_menu_activity extends Activity {
 
-    private Button my_button2 = null;
-    private Button my_button3 = null;
-    private Button my_button4 = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_menu);
+
+        Button my_button2 = null;
+        Button my_button3 = null;
+        Button my_button4 = null;
 
         my_button2 = (Button) findViewById(R.id.top_button);
         my_button2.setOnClickListener(new MyButtonListener());
