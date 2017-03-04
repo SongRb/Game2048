@@ -23,5 +23,9 @@
     <string name="enter_error">进入房间失败</string>
     <string name="load_show">正在加载</string>
     <string name="bluetooth">蓝牙不可用</string>
+    <string name="exit_game_button_string">退出游戏</string>
+    <string name="about_us_button_string">关于我们</string>
+    <string name="tutorial_button_string">操作教程</string>
+    <string name="begin_game_button_string">开始游戏</string>
 
 </resources>

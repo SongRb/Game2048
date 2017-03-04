@@ -35,76 +35,78 @@
         <!--android:layout_alignParentEnd="true" />-->
 
 
-        <!-- 屏幕中心按钮左侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
-
-        <Button
-
-            android:id="@+id/left_button"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:background="@drawable/round_button"
-            android:layout_above="@+id/below_button"
-            android:layout_toLeftOf="@+id/below_button"
-            android:layout_toStartOf="@+id/below_button"
-            android:layout_marginBottom="26dp" />
-
-
-        <!-- 屏幕中心按钮右侧侧按钮，此时需要设置垂直居中 android:layout_centerVertical="true" -->
-
-        <Button
-
-            android:id="@+id/mid_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button"
-            android:text="关于我们"
-            android:layout_alignBottom="@+id/left_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-
-        <!-- 屏幕中心按钮上方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
-
-        <Button
-
-            android:id="@+id/my_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button"
-            android:layout_above="@id/below_button"
-            android:layout_marginBottom="100dp"
-
-            android:layout_toLeftOf="@+id/mid_button"
-            android:layout_toStartOf="@+id/mid_button" />
-        <!--android:layout_alignTop="@+id/center_menu_button"-->
-
-
-        <!-- 屏幕中心按钮下方按钮，此时需要设置水平居中 android:layout_centerHorizontal="true" -->
-
-        <Button
-
-            android:id="@+id/below_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button"
-            android:text="退出游戏"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/my_button"
-            android:layout_alignStart="@+id/my_button" />
-
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="2048"
-            android:textSize="40pt"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/header"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40pt" />
+
+        <Button
+
+            android:id="@+id/begin_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tutorial_button"
+
+            android:layout_alignBottom="@+id/tutorial_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/round_button"
+            android:text="@string/begin_game_button_string" />
+
+        <Button
+
+            android:id="@+id/tutorial_button"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_toLeftOf="@+id/about_us_button"
+            android:layout_toStartOf="@+id/about_us_button"
+            android:background="@drawable/round_button"
+            android:text="@string/tutorial_button_string" />
+
+        <Button
+
+            android:id="@+id/about_us_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tutorial_button"
+            android:layout_alignBottom="@+id/tutorial_button"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_toLeftOf="@+id/exit_button"
+            android:layout_toStartOf="@+id/exit_button"
+            android:background="@drawable/round_button"
+            android:text="@string/about_us_button_string" />
+
+        <Button
+
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/about_us_button"
+            android:layout_alignBottom="@+id/about_us_button"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/round_button"
+            android:text="@string/exit_game_button_string" />
+
 
     </RelativeLayout>
 </LinearLayout>

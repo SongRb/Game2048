@@ -8,26 +8,23 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class game_menu_activity extends Activity {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.activity_game_menu);
 
-        Button my_button2 = null;
-        Button my_button3 = null;
-        Button my_button4 = null;
+        Button single_game_button;
+        Button double_game_button;
+        Button my_button4;
 
-        my_button2 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.top_button);
-        my_button2.setOnClickListener(new MyButtonListener());
+        single_game_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.single_game_button);
+        single_game_button.setOnClickListener(new MyButtonListener());
 
-        my_button3 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.mid_button);
-        my_button3.setOnClickListener(new MyButtonListener2());
+        double_game_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.about_us_button);
+        double_game_button.setOnClickListener(new MyButtonListener2());
 
-        my_button4 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.left_button);
+        my_button4 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.tutorial_button);
         my_button4.setOnClickListener(new MyButtonListener3());
     }
 
