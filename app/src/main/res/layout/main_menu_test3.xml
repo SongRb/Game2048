@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button1"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginLeft="0dp"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:text="2333" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:text="2333" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button3"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:text="2333" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button4"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:text="2333" />-->
+    <!--</RelativeLayout>-->
+
+
+
+
+        <android.support.percent.PercentRelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:layout_marginTopPercent="30%"
+            app:layout_marginLeftPercent="30%"
+            android:layout_width=""
+            android:layout_height=""
+
+            app:layout_widthPercent="40%"
+            app:layout_aspectRatio="100%"            >
+
+
+
+
+
+
+
+
+
+            <!--<Button-->
+            <!--android:id="@+id/button1"-->
+            <!--app:layout_marginLeftPercent="40%"-->
+            <!--app:layout_marginTopPercent="40%"-->
+
+            <!--android:text="2333"-->
+
+            <!--app:layout_heightPercent="10%"-->
+            <!--app:layout_aspectRatio="100%"-->
+            <!--/>-->
+
+            <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--app:layout_marginLeftPercent="60%"-->
+            <!--app:layout_marginTopPercent="40%"-->
+
+            <!--android:text="2333"-->
+
+            <!--app:layout_heightPercent="10%"-->
+            <!--app:layout_aspectRatio="100%"-->
+            <!--/>-->
+
+            <!--<Button-->
+            <!--android:id="@+id/button3"-->
+            <!--app:layout_marginLeftPercent="40%"-->
+            <!--app:layout_marginTopPercent="60%"-->
+
+            <!--android:text="2333"-->
+
+            <!--app:layout_heightPercent="10%"-->
+            <!--app:layout_aspectRatio="100%"-->
+            <!--/>-->
+
+            <!--<Button-->
+            <!--android:id="@+id/button4"-->
+            <!--app:layout_marginLeftPercent="60%"-->
+            <!--app:layout_marginTopPercent="60%"-->
+
+            <!--android:text="2333"-->
+
+            <!--app:layout_heightPercent="10%"-->
+            <!--app:layout_aspectRatio="100%"-->
+            <!--/>-->
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/header"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40pt" />
+
+            <Button
+
+                android:id="@+id/achievement_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tutorial_button"
+
+                android:layout_alignBottom="@+id/tutorial_button"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/round_button"
+                android:text="@string/begin_game_button_string" />
+
+            <Button
+
+                android:id="@+id/tutorial_button"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/round_button"
+                android:text="@string/tutorial_button_string"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/achievement_button"
+                android:layout_toEndOf="@+id/achievement_button"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp" />
+
+            <Button
+
+                android:id="@+id/about_us_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tutorial_button"
+                android:layout_alignBottom="@+id/tutorial_button"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_toLeftOf="@+id/exit_button"
+                android:layout_toStartOf="@+id/exit_button"
+                android:background="@drawable/round_button"
+                android:text="@string/about_us_button_string" />
+
+            <Button
+
+                android:id="@+id/exit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/about_us_button"
+                android:layout_alignBottom="@+id/about_us_button"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/round_button"
+                android:text="@string/exit_game_button_string" />
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

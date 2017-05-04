@@ -9,26 +9,23 @@ import android.widget.Button;
 
 public class main_menu_activity extends Activity {
 
-    private Button my_button = null;
-    private Button my_button2 = null;
-    private Button my_button3 = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(cn.edu.sjtu.seiee.songrb.game2048.R.layout.activity_main_menu);
 
-        my_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.begin_game_button);
-        my_button.setText("开始游戏");
+        Button my_button = (Button) findViewById(R.id.achievement_button);
+
         my_button.setOnClickListener(new MyButtonListener());
 
-        my_button2 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.tutorial_button);
-        my_button2.setText("操作说明");
-        my_button2.setOnClickListener(new MyButtonListener2());
+        my_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.tutorial_button);
 
-        my_button3 = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.about_us_button);
-        my_button3.setText("关于我们");
-        my_button3.setOnClickListener(new MyButtonListener3());
+        my_button.setOnClickListener(new MyButtonListener2());
+
+        my_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.about_us_button);
+
+        my_button.setOnClickListener(new MyButtonListener3());
 
         Button below_button = (Button) findViewById(cn.edu.sjtu.seiee.songrb.game2048.R.id.exit_button);
         below_button.setOnClickListener(new View.OnClickListener() {
